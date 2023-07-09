@@ -14,7 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-public class Question {
+public class Question { // 엔티티: 데이터베이스 테이블과 매핑되는 자바 클래스
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
