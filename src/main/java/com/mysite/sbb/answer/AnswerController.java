@@ -28,7 +28,6 @@ public class AnswerController {
     private final AnswerService answerService;
     private final UserService userService;
 
-    // 답변 등록
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/create/{id}")
     public String createAnswer(Model model, @PathVariable("id") Integer id, @Valid AnswerForm answerForm, BindingResult bindingResult, Principal principal){
@@ -42,7 +41,6 @@ public class AnswerController {
         return String.format("redirect:/question/detail/%s#answer_%s", answer.getQuestion().getId(), answer.getId());
     }
 
-    // 답변 수정
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/modify/{id}")
     public String answerModify(AnswerForm answerForm, @PathVariable("id") Integer id, Principal principal) {
@@ -54,7 +52,6 @@ public class AnswerController {
         return "answer_form";
     }
 
-    // 답변 수정
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/modify/{id}")
     public String answerModify(@Valid AnswerForm answerForm, BindingResult bindingResult, @PathVariable("id") Integer id, Principal principal) {
@@ -69,7 +66,6 @@ public class AnswerController {
         return String.format("redirect:/question/detail/%s#answer_%s", answer.getQuestion().getId(), answer.getId());
     }
 
-    // 답변 삭제
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/delete/{id}")
     public String answerDelete(Principal principal, @PathVariable("id") Integer id) {
@@ -81,7 +77,6 @@ public class AnswerController {
         return String.format("redirect:/question/detail/%s", answer.getQuestion().getId());
     }
 
-    // 추천
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/vote/{id}")
     public String answerVote(Principal principal, @PathVariable("id") Integer id) {
