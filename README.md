@@ -8,7 +8,3 @@
 * 로그인/로그아웃
 * 게시글 CRUD
 * 댓글 CRUD
-
-<br>
-
-Ref. [https://wikidocs.net/book](https://wikidocs.net/book/7601)
